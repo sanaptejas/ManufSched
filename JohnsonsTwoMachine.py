@@ -1,7 +1,7 @@
 # This program is based on Johnson's rule used in OR
 # to schedule jobs between two work centers.
-# It takes as input the processing time of each on the
-# two work centers.
+# It takes as input the processing time of each job on
+# the two work centers.
 
 # Output:
 # 1 [5, 2]
