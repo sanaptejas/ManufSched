@@ -4,6 +4,7 @@
 # the two work centers.
 
 # Output:
+#                Johnson's Rule.
 # 1 [5, 2]
 # 2 [2, 6]
 # 3 [1, 2]
@@ -12,22 +13,24 @@
 # 6 [3, 7]
 # 7 [7, 2]
 # 8 [5, 1]
-# Old Job1:  [2, 3, 6]
-# New Job1:  [3, 2, 6]
-# Old Job2:  [1, 4, 5, 7, 8]
-# New Job2:  [8, 7, 1, 4, 5]
-# Final sequence:  [3, 2, 6, 8, 7, 1, 4, 5]
+# 
+# Jobs that will go first: [2, 3, 6]
+# Jobs that will go last: [1, 4, 5, 7, 8]
+# 
+# Jobs going first arranged in ascending order: [3, 2, 6]
+# Jobs going last arranged in descneding order: [5, 4, 7, 1, 8]
+# 
+# Final sequence: [3, 2, 6, 5, 4, 7, 1, 8]
 
-import random
-
-#PT=[random.sample(range(1,100),2) for x in range(0,10)]
 PT=[ [5,2],[2,6],[1,2],[7,5], [6,6],[3,7],[7,2],[5,1] ]
 
 n=len(PT)
 jobs=dict((key+1, PT[key]) for key in range(0,n))
 
-job1=[]
-job2=[]
+first=[]
+last=[]
+
+print("\n\t\tJohnson's Rule.")
 
 for j in range(1, n+1):
     print(j, jobs[j])
@@ -35,31 +38,34 @@ for j in range(1, n+1):
 
 for j in range(1,n+1):
     if jobs[j][0] < jobs[j][1]:
-        job1.append(j)
+        first.append(j)
     else:
-        job2.append(j)
+        last.append(j)
 
-print("Old Job1: ",job1)
+print("\nJobs that will go first:",first)
+print("Jobs that will go last:",last)
 
-for k in range(0, len(job1)):
-    for j in range(0,len(job1)-1):
-        if jobs[job1[j]][0] > jobs[job1[j+1]][0]:
-            temp=job1[j]
-            job1[j]=job1[j+1]
-            job1[j+1]=temp
+for k in range(0, len(first)):
+    for j in range(0,len(first)-1):
+        if jobs[first[j]][0] >= jobs[first[j+1]][0]:
+            temp=first[j]
+            first[j]=first[j+1]
+            first[j+1]=temp
 
-print("New Job1: ",job1)
+print("\nJobs going first arranged in ascending order:",first)
 
-print("Old Job2: ",job2)
+for k in range(0,len(last)):
+    for j in range(0,len(last)-1):
+        if jobs[last[j]][1] <=  jobs[last[j+1]][1]:
+            temp=last[j]
+            last[j]=last[j+1]
+            last[j+1]=temp
 
-for k in range(0,len(job2)):
-    for j in range(0,len(job2)-1):
-        if jobs[job2[j]][1] <  jobs[job2[j+1]][1]:
-            temp=job2[j]
-            job2[j]=job2[j+1]
-            job2[j+1]=temp
+#last = list( reversed(last)  )
+print("Jobs going last arranged in descneding order:",last)
 
-job2 = list( reversed(job2)  )
-print("New Job2: ",job2)
+print("\nFinal sequence:",first+last)
 
-print("Final sequence: ",job1+job2)
+
+#import random
+#PT=[random.sample(range(1,100),2) for x in range(0,10)]
