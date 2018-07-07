@@ -1,11 +1,25 @@
+import InputPTMatrix as PTmatrix
+import MeasureMakespanFunction as makespan
+
 # This program is based on Johnson's rule used in OR
 # to schedule jobs between two work centers.
 # It takes as input the processing time of each job on
 # the two work centers.
-
-# Output:
-#                Johnson's Rule.
-#
+# 
+# Output: 
+# 		Johnson's Rule.
+# Items: 8
+# 	  M/c 1 | M/c 2 | 
+# ------------------------
+# Job1	| 5	2
+# Job2	| 2	6
+# Job3	| 1	2
+# Job4	| 7	5
+# Job5	| 6	6
+# Job6	| 3	7
+# Job7	| 7	2
+# Job8	| 5	1
+# [[5, 2], [2, 6], [1, 2], [7, 5], [6, 6], [3, 7], [7, 2], [5, 1]]
 # 1 [5, 2]
 # 2 [2, 6]
 # 3 [1, 2]
@@ -22,13 +36,49 @@
 # Jobs going last arranged in descneding order: [5, 4, 7, 1, 8]
 # 
 # Final sequence: [3, 2, 6, 5, 4, 7, 1, 8]
+# Normal makespan: 
+# [[ 5.  7.]
+#  [ 7. 13.]
+#  [ 8. 10.]
+#  [15. 20.]
+#  [21. 27.]
+#  [24. 31.]
+#  [31. 33.]
+#  [36. 37.]]
+# Optimal makespan: 
+# PT matrix according to sequence
+# 3 [1, 2]
+# 2 [2, 6]
+# 6 [3, 7]
+# 5 [6, 6]
+# 4 [7, 5]
+# 7 [7, 2]
+# 1 [5, 2]
+# 8 [5, 1]
+# Makespan
+# [[ 1.  3.]
+#  [ 3.  9.]
+#  [ 6. 13.]
+#  [12. 18.]
+#  [19. 24.]
+#  [26. 28.]
+#  [31. 33.]
+#  [36. 37.]]
+
 
 def main():
     
     print("\n\t\tJohnson's Rule.")
 
-    PT=[ [5,2],[2,6],[1,2],[7,5], [6,6],[3,7],[7,2],[5,1] ]
-    JohnsonsRule(PT)
+    #PT=[ [5,2],[2,6],[1,2],[7,5], [6,6],[3,7],[7,2],[5,1] ]
+    items=int(input("Items: "))
+    machines=2
+    PT=PTmatrix.take_input(machines, items) 
+    seq=JohnsonsRule(PT)
+    print("Normal makespan: ")
+    makespan.plain_makespan(PT, items, machines)
+    print("Optimal makespan: ")
+    makespan.seq_makespan(PT, items, machines, seq)
 
 def JohnsonsRule(PT):
  
@@ -37,6 +87,7 @@ def JohnsonsRule(PT):
     
     first=[]
     last=[]
+    
     
     for j in range(1, n+1):
         print(j, jobs[j])
@@ -69,8 +120,9 @@ def JohnsonsRule(PT):
     
     #last = list( reversed(last)  )
     print("Jobs going last arranged in descneding order:",last)
-    
-    print("\nFinal sequence:",first+last)
+    final=first+last
+    print("\nFinal sequence:", final)
+    return final
     
 if __name__ == "__main__":
     main()
