@@ -34,14 +34,10 @@ import InputPTMatrix as PTmatrix
 
 def main():
     #PT=[]
-    machines=int(input("Machines: "))
-    items=int(input("Items: "))
-    seq=[3,5,4,2,1]
+    seq=[]
+    #seq=[3,5,4,2,1]
     #PT=[[16,18,12],[14,10,11],[13,20,15],[19,15,19],[15,16,16]]
-    PT=PTmatrix.take_input(machines, items)
-    
-    items=len(PT)
-    machines=len(PT[0])
+    PT, items, machines=PTmatrix.take_input()
     
     print("Original PT matrix")
     for j in range(0,items):
@@ -58,6 +54,7 @@ def main():
 def plain_makespan(PT, items, machines):
     ms=np.zeros((items, machines))
     
+    print("Makespan")
     for j in range(0, items):
         ms[j][0]=ms[j-1][0]+PT[j][0]
 
@@ -78,7 +75,6 @@ def seq_makespan(PT, items, machines, seq):
         new_PT.append(PT[s-1])
         print(s, PT[s-1])
 
-    print("Makespan")
     plain_makespan(new_PT, items, machines)
 
 if __name__=="__main__":
