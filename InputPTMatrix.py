@@ -13,13 +13,13 @@
 # [[16, 18, 12], [14, 10, 11], [13, 20, 15], [19, 15, 19], [15, 16, 16]]
 
 def main():
+    
+    take_input()
+
+def take_input():
+    PT=[]
     machines=int(input("Machines: "))
     items=int(input("Items: "))
-    
-    take_input(machines, items)
-
-def take_input(machines, items):
-    PT=[]
     print("\t ", end=" ")
     for m in range(0, machines):
         print("M/c {0} |".format(m+1), end=" ")
@@ -34,7 +34,7 @@ def take_input(machines, items):
         a=list(map(int,input().split()))
         PT.append(a)
     print(PT, end="\n")
-    return PT 
+    return PT, items, machines 
 
 if __name__=="__main__":
     main()
