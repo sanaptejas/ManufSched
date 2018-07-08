@@ -67,13 +67,12 @@ import MeasureMakespanFunction as makespan
 
 
 def main():
-    
+    print("NOTE: Enter no. of machines as 2.")
     print("\n\t\tJohnson's Rule.")
 
     #PT=[ [5,2],[2,6],[1,2],[7,5], [6,6],[3,7],[7,2],[5,1] ]
-    items=int(input("Items: "))
+    PT, items, machines=PTmatrix.take_input() 
     machines=2
-    PT=PTmatrix.take_input(machines, items) 
     seq=JohnsonsRule(PT)
     print("Normal makespan: ")
     makespan.plain_makespan(PT, items, machines)
