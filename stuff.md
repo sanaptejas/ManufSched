@@ -1,8 +1,3 @@
-<style type="text/css">
-.create {background-color: #00FF00;}
-.action {background-color: #FFFF00;}
-</style>
-
 #### File flow
 1. `johnsons_rule.py`
 	1. `console_input.py`
