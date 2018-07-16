@@ -2,10 +2,6 @@
 .create {background-color: #00FF00;}
 .action {background-color: #FFFF00;}
 </style>
-<!---
-<span class="action">Action</span>
-<span class="create">Create</span>
--->
 
 #### File flow
 1. `johnsons_rule.py`
@@ -39,4 +35,4 @@ Step 5: :large_orange_diamond: Login and see the stored data
 
 Step 6: :black_circle: Apply an algorithm to the data and see the result
 
-Step 7: <span class="create">Create</span> Use some sort of graph to compare different algorithms
+Step 7: :large_orange_diamond: Use some sort of graph to compare different algorithms
