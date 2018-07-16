@@ -27,16 +27,16 @@
 3. use enumerate (`list.enum()`) with lists
 
 #### game plan
-Step 1: <span class="create">Create</span> five algorithms (Johnsons rule, Palmer, CDS, etc...)
+Step 1: :red_circle: five algorithms (Johnsons rule, Palmer, CDS, etc...)
 
-Step 2: <span class="create">Create</span> django/flask application
+Step 2: :large_orange_diamond: django/flask application
 
-Step 3: <span class="create">Create</span> postgreSQL database
+Step 3: :red_circle: postgreSQL database
 
-Step 4: <span class="create">Create</span> login page and user accounts
+Step 4: :large_orange_diamond: login page and user accounts
 
-Step 5: <span class="action">Action</span> Login and see the stored data
+Step 5: :large_orange_diamond: Login and see the stored data
 
-Step 6: <span class="action">Action</span> Apply an algorithm to the data and see the result
+Step 6: :black_circle: Apply an algorithm to the data and see the result
 
 Step 7: <span class="create">Create</span> Use some sort of graph to compare different algorithms
