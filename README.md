@@ -1,6 +1,6 @@
 # ManufSched
 
-*ManufSched* stands for Manufacturing Scheduling. This projects aims to create a complete software package which demonstartes a scheduling engine working in conjunction with an ERP(Enterprise Resourse Planning) and MES(Manufacturing Execution System) to optimize the flow of jobs on the shop floor in real time. This project has just began.
+*ManufSched* stands for Manufacturing Scheduling. This project seeks to mimic a MES. The main goal is to review algorithims to optimize the flow of jobs on the shop floor in real time. This project has just began.
 
 
 This project at the current stage aims to do the following:
